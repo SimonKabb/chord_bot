@@ -1,0 +1,5 @@
+#!/bin/zsh
+source venv/bin/activate
+TOKEN = "5384642808:AAF4uO9TqoVSOj1saccBCh01JUIQAxjw07o"
+python3 first_bot.py
+
