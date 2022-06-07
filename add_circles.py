@@ -1,34 +1,57 @@
-from turtle import position
 from PIL import Image, ImageDraw, ImageFont
-position_circle = {'1x1': (95, 25, 145, 75),
-                   '1x2': (95, 75, 145, 125),
-                   '1x3': (95, 125, 145, 175),
-                   '1x4': (95, 175, 145, 225),
-                   '1x5': (95, 225, 145, 275),
-                   '1x6': (95, 275, 145, 325),
-                   '2x1': (175, 25, 225, 75),
-                   '2x2': (175, 75, 225, 125),
-                   '2x3': (175, 125, 225, 175),
-                   '2x4': (175, 175, 225, 225),
-                   '2x5': (175, 225, 225, 275),
-                   '2x6': (175, 275, 225, 325),
-                   '3x1': (255, 25, 305, 75),
-                   '3x2': (255, 75, 305, 125),
-                   '3x3': (255, 125, 305, 175),
-                   '3x4': (255, 175, 305, 225),
-                   '3x5': (255, 225, 305, 275),
-                   '3x6': (255, 275, 305, 325),
-                   '4x1': (335, 25, 385, 75),
-                   '4x2': (335, 75, 385, 125),
-                   '4x3': (335, 125, 385, 175),
-                   '4x4': (335, 175, 385, 225),
-                   '4x5': (335, 225, 385, 275),
-                   '4x6': (335, 275, 385, 325),
-                   }
-im = Image.open('img_tabs/sample1.png')
-draw = ImageDraw.Draw(im)
-for position in position_circle:
-    draw.ellipse(position_circle[position], 'white', 'black', width=3)
-im.show()
+from constant_set import POSITON_CIRCLE
 
-print(position_circle['1x1'])
+
+def make_chord(*positions, first_fing, chord, img_type, lad=''):
+    """Сreates the position of the fingers on the image."""
+    if img_type == 1:
+        im = Image.open('img_tabs/sample1.png')
+    else:
+        im = Image.open('img_tabs/sample2.png')
+    draw = ImageDraw.Draw(im)
+    for position in first_fing:
+        coord_pos = POSITON_CIRCLE[position]
+        draw.ellipse(coord_pos, 'white', 'black', width=3)
+        font = ImageFont.truetype('fonts/Prompt-Medium.ttf', size=28)
+        draw.text(
+            (coord_pos[0]+18, coord_pos[1]+5),
+            '1',
+            fill=('#1C0606'),
+            font=font
+        )
+    finger_number = 2
+    for position in positions:
+        coord_pos = POSITON_CIRCLE[position]
+        draw.ellipse(coord_pos, 'white', 'black', width=3)
+        font = ImageFont.truetype('fonts/Prompt-Medium.ttf', size=28)
+        draw.text(
+            (coord_pos[0]+18, coord_pos[1]+5),
+            str(finger_number),
+            fill=('#1C0606'),
+            font=font
+        )
+        finger_number += 1
+        draw.text(
+            (10, 10),
+            chord,
+            fill=('#1C0606'),
+            font=font
+        )
+        draw.text(
+            (100, 300),
+            lad,
+            fill=('#1C0606'),
+            font=font
+        )
+    # im.show()
+    path = f'img_tabs/{chord}.png'
+    im.save(path)
+    return path
+
+
+# make_chord('2x3', '2x1', '3x2', chord='D', img_type=1)
+make_chord('2x4', '3x3',
+           first_fing=['1x2'],
+           chord='Am',
+           img_type=1
+           )

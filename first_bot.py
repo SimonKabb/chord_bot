@@ -2,7 +2,7 @@
 from aiogram.utils import executor
 from create_bot import dp
 from handler import client, admin, common
-
+from add_circles import make_chord
 
 async def on_startup(_):
     print('bot online')
