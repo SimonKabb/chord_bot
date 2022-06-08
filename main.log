@@ -1,0 +1,51 @@
+INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
+INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Сообщение A получено из 76411159
+INFO:root:Сообщение am получено из 76411159
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
+INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Сообщение A получено из 76411159
+INFO:root:Сообщение Am получено из 76411159
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished coro=<Dispatcher._process_polling_updates() done, defined at /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/dispatcher.py:407> exception=TypeError("send_message() got an unexpected keyword argument 'message'")>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/dispatcher.py", line 256, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/aiogram/dispatcher/handler.py", line 116, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/Users/semenkapustnikov/Dev/bots/chord_bot/handler/common.py", line 39, in get_message
+    await bot.send_message(chat_id=chat_id, message='Я еще такого аккорда не знаю')
+TypeError: send_message() got an unexpected keyword argument 'message'
+INFO:root:Сообщение A получено из 76411159
+INFO:root:Сообщение C получено из 76411159
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
+INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Сообщение C получено из 76411159
+INFO:root:Сообщение C получено из 76411159
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
+INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Сообщение C получено из 76411159
+ERROR:root:Аккорда C нет в БД
+INFO:aiogram.dispatcher.dispatcher:Stop polling...
+WARNING:aiogram:Goodbye!
