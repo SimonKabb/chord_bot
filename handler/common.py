@@ -25,7 +25,6 @@ async def get_message(message: types.Message):
     for y in img_chords:
         chord = y[0]
         positions = y[1].split('P')
-        print('postitions', positions[0])
         first_fing = y[2].split()
         img_type = y[3]
         image = open(make_chord(positions, img_type=img_type,
