@@ -7,23 +7,29 @@ import sqlite3
 
 def find_chord(request):
     """searches the database for a string with the desired chord"""
-    sqlite_connection = sqlite3.connect('handler/chords.db')
+    sqlite_connection = sqlite3.connect('chords.db')
     cursor = sqlite_connection.cursor()
+    request = request.upper()
     sqlite_select_query = (
-        f"SELECT tab FROM {request[0].upper()} WHERE name = '{request.upper()}'")
+        f"SELECT chord, positions, first_fing, img_type, type FROM {request[0]} WHERE name = '{request}'")
     cursor.execute(sqlite_select_query)
     records = cursor.fetchall()
-    print(records)
     cursor.close()
+    print(records)
     return records
 
 
 async def get_message(message: types.Message):
     chat_id = message.chat.id
     img_chords = find_chord(message.text)
-    for img_chord in img_chords:
-        print(*img_chord)
-        image = open(make_chord(*img_chord), 'rb')
+    for y in img_chords:
+        chord = y[0]
+        positions = y[1].split('P')
+        print('postitions', positions[0])
+        first_fing = y[2].split()
+        img_type = y[3]
+        image = open(make_chord(positions, img_type=img_type,
+                                chord=chord, first_fing=first_fing), 'rb')
         await bot.send_photo(chat_id=chat_id, photo=image)
 
 
