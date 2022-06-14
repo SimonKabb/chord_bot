@@ -1,7 +1,6 @@
 INFO:aiogram:Bot: chords_bot [@easy_chords_bot]
 WARNING:aiogram:Updates were skipped successfully.
 INFO:aiogram.dispatcher.dispatcher:Start polling.
-INFO:root:Сообщение am получено из 76411159
-INFO:root:Сообщение AM получено из 76411159
+INFO:root:Сообщение d получено из 76411159
 INFO:aiogram.dispatcher.dispatcher:Stop polling...
 WARNING:aiogram:Goodbye!

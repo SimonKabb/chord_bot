@@ -68,8 +68,9 @@ def find_chord(request):
     cursor.execute(sqlite_select_query)
     records = cursor.fetchall()
     cursor.close()
-    print(records)
-    return records
+    if len(records):
+        return records
+    else:
 
 
 x = find_chord('am')

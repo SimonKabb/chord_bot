@@ -12,7 +12,6 @@ def make_chord(positions, first_fing, chord, img_type, lad):
         im = Image.open('img_tabs/sample2.png')
     draw = ImageDraw.Draw(im)
     for position in first_fing:
-        print('first_fing', position)
         coord_pos = POSITON_CIRCLE[position]
         draw.ellipse(coord_pos, 'white', 'black', width=3)
         draw.text(
@@ -29,7 +28,6 @@ def make_chord(positions, first_fing, chord, img_type, lad):
         font=font_lad
     )
     for position in positions:
-        print('other_fing', position)
         cord_pos = POSITON_CIRCLE[position]
         draw.ellipse(cord_pos, 'white', 'black', width=3)
         draw.text(
@@ -45,7 +43,6 @@ def make_chord(positions, first_fing, chord, img_type, lad):
             fill=('#1C0606'),
             font=font_main
         )
-    # im.show()
     path = f'img_tabs/{chord}.png'
     im.save(path)
 
@@ -53,8 +50,8 @@ def make_chord(positions, first_fing, chord, img_type, lad):
 
 
 # make_chord('2x3', '2x1', '3x2', chord='D', img_type=1)
-# make_chord('2x4', '3x3',
-#            first_fing='1x2',
-#            chord='Am',
-#            img_type=1,
-#            )
+make_chord(positions=['5x4'],
+           img_type=1,
+           chord='am',
+           first_fing=['4x3'],
+           lad='3')

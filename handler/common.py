@@ -15,7 +15,7 @@ def find_chord(request):
     cursor = sqlite_connection.cursor()
     request = request.upper()
     sqlite_select_query = (
-        f"SELECT chord, positions, first_fing, img_type, lad FROM {request} WHERE name = '{request}'")
+        f"SELECT chord, positions, first_fing, img_type, lad FROM {request}")
     cursor.execute(sqlite_select_query)
     records = cursor.fetchall()
     cursor.close()
